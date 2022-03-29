@@ -21,7 +21,7 @@ function App() {
       <Title videoTitle={video.title} />
       <Stats views={viewsState} videoUploadDate={video.createdAt} />
       <Votes upVotes={upVotesState} downVotes={downVotesState} />
-      <CommentStack commentsArray={commentsArrayState} />
+      <CommentStack comments={commentsArrayState} />
     </div>
   );
 }
