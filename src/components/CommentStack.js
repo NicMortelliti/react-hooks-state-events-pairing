@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Comment from "./Comment.js";
 
 function CommentStack({ comments }) {
+  const [hideState, setHideState] = useState(false);
+
+  function handleHide() {
+    const newHideState = !hideState;
+    setHideState(newHideState);
+  }
+
   const commentsArray = comments.map(comment => {
     return (
       <div key={comment.id}>
@@ -12,10 +19,12 @@ function CommentStack({ comments }) {
 
   return (
     <div>
-      <button>Hide Comments</button>
+      <button onClick={handleHide}>
+        {hideState ? "Show Comments" : "Hide Comments"}
+      </button>
       <hr />
-      <h2>{commentsArray.length} Comments</h2>
-      {commentsArray}
+      {hideState ? null : <h2>{commentsArray.length} Comments</h2>}
+      {hideState ? null : commentsArray}
     </div>
   );
 }
