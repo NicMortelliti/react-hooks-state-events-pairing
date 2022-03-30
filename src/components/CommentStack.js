@@ -4,7 +4,9 @@ import Comment from "./Comment.js";
 function CommentStack({ comments }) {
   const commentsArray = comments.map(comment => {
     return (
-      <Comment key={comment.id} user={comment.user} text={comment.comment} />
+      <div key={comment.id}>
+        <Comment user={comment.user} text={comment.comment} />
+      </div>
     );
   });
 

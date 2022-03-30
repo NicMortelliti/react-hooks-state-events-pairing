@@ -11,8 +11,6 @@ function App() {
 
   // Set up states
   const [viewsState, setViewsState] = useState(video.views);
-  const [upVotesState, setUpVotesState] = useState(video.upvotes);
-  const [downVotesState, setDownVotesState] = useState(video.downvotes);
   const [commentsArrayState, setCommentsArrayState] = useState(video.comments);
 
   return (
@@ -20,7 +18,7 @@ function App() {
       <Iframe video={video} />
       <Title videoTitle={video.title} />
       <Stats views={viewsState} videoUploadDate={video.createdAt} />
-      <Votes upVotes={upVotesState} downVotes={downVotesState} />
+      <Votes upVotes={video.upvotes} downVotes={video.downvotes} />
       <CommentStack comments={commentsArrayState} />
     </div>
   );
